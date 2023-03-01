@@ -31,3 +31,8 @@ app.post('/user', async(req, res) => {
   return res.status(500).send(error.message)
 }
 })
+
+app.get('/user', async(req, res) => {
+  const user = await User.findAll();
+  return res.json(user);
+})
