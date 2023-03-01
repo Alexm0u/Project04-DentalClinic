@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsToMany(
         models.Service,
         {
-          through: 'Appointments',
+          through: 'Appointment',
           foreignKey: 'user_id'
       })
     }
