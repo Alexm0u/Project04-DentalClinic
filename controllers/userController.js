@@ -27,13 +27,13 @@ userController.getUser = async (req, res) => {
 userController.updateUser = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
-    const userId = req.userId
+    const userId = req.params.id
     
     const encryptedPassword = bcrypt.hashSync(password, 10);
 
-    const updateUser = await User.User.update(
+    const updateUser = await User.update(
       {
-        fullname: fullName,
+        fullName: fullName,
         email: email,
         password: encryptedPassword
       },
