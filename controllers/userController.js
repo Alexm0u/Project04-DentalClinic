@@ -1,14 +1,17 @@
 const { User } = require("../models/index");
+const bcrypt = require('bcrypt');
 const userController = {};
 
 userController.newUser = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
+    const encryptedPassword = bcrypt.hashSync(password, 10);
     const user = {
       fullName: fullName,
       email: email,
-      password: password,
+      password: encryptedPassword,
     };
+
     const users = await User.create(user);
     return res.json(users);
   } catch (error) {
@@ -21,4 +24,33 @@ userController.getUser = async (req, res) => {
   return res.json(users);
 };
 
+userController.updateUser = async (req, res) => {
+  try {
+    const { fullName, email, password } = req.body;
+    const userId = req.userId
+    
+    const encryptedPassword = bcrypt.hashSync(password, 10);
+
+    const updateUser = await User.User.update(
+      {
+        fullname: fullName,
+        email: email,
+        password: encryptedPassword
+      },
+      {
+        where: {
+          id: userId
+        }
+      }
+    );
+
+    if (!updateUser) {
+      return res.send('User not updated')
+    }
+
+    return res.send('User updated')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 module.exports = userController;
