@@ -19,25 +19,25 @@ authController.login = async (req, res) => {
         return res.send('Wrong User')
     }
 
-//     const isMatch = bcrypt.compareSync(password, user.password);
+    const isMatch = bcrypt.compareSync(password, user.password);
 
-//     if (!isMatch) {
-//         return res.send('Wrong credentials')
-//     }
+    if (!isMatch) {
+        return res.send('Wrong credentials')
+    }
 
-//     const token = jwt.sign(
-//         {
-//             userId: user.id,
-//             email: user.email,
-//             roleId: user.role_Id
-//         },
-//         'secreto',
-//         { expiresIn: '2h'}
-//     );
+    const token = jwt.sign(
+        {
+            userId: user.id,
+            email: user.email,
+            roleId: user.role_Id
+        },
+        'secreto',
+        { expiresIn: '2h'}
+    );
     
-//     return res.json(token)
-//   } catch (error) {
-//     return res.status(500).send(error.message)
-//   }
-// }
+    return res.json(token)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 module.exports = authController;
