@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Doctor.hasOne(models.User, 
-        {
+      Doctor.belongsTo(
+        models.User,{
         foreignKey: 'user_id'
-      })
+        })
     }
   }
   Doctor.init({

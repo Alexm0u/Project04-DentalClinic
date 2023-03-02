@@ -14,14 +14,14 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsTo(
         models.Role,
         {
-          foreignKey: 'user_id'
-      }),
-      User.belongsToMany(
-        models.Service,
-        {
-          through: 'Appointment',
-          foreignKey: 'user_id'
+          foreignKey: 'role_id'
       })
+      // User.belongsToMany(
+      //   models.Service,
+      //   {
+      //     through: 'Appointment',
+      //     foreignKey: 'user_id'
+      // })
     }
   }
   User.init({

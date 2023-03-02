@@ -1,16 +1,21 @@
-const express = require("express");
-const { User } = require("./models/");
+const express = require('express');
+const { User } = require('./models/index')
+const db = require('./db/db');
+require('dotenv').config()
+
 const app = express();
-const PORT = 3000;
+
 app.use(express.json());
-// const db = require('./db/db.js');
-require('dotenv').config();
-// app.use(router);
+const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`)
+// })
+
+
+app.get('/welcome', (req, res) => {
+    return res.send("Bienvenido a mi app")
 })
-
 
 app.get('/welcome', (req, res) => {
     return res.send("Bienvenido a mi app")
@@ -24,20 +29,27 @@ app.post('/user', async (req, res) => {
             email: email,
             password: password
         }
-        const user = await User.create(newUser)
-        return res.json(user)
+        const users = await User.create(newUser)
+        return res.json(users)
     } catch (error) {
         return res.status(500).send(error.message)
     }
 })
 
-app.get('/user', async (req,res) => {
-    const user = await User.findAll();
-    res.send(user);
+// app.get('/username', async(req, res)=> {
+//     const users = await User.findAll({
+//         attributes: ['fullName','email']} )
+//             return res.json(users);
+//     })
+
+app.get('/user', async(req, res)=> {
+    const users = await User.findAll();
+    return res.json(users);
 })
 
-// db.then(() => {
-//     //Starting server
-//     app.listen(PORT, () => console.log("Server on port " + PORT));
-// })
-//     .catch((err) => console.log(err.message));   
+
+db.then(() => {
+    //Starting server
+    app.listen(PORT, () => console.log("Server on port " + PORT));
+})
+    .catch((err) => console.log(err.message));   
