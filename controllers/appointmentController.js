@@ -7,13 +7,7 @@ const appointmentController = {};
 
 appointmentController.newAppointment = async (req, res) => {
     try {
-        // Recuperamos la informacion a traves de la req
-        // const name = req.body.name;
-        // const description = req.body.description;
-        // const price = req.body.price;
-
         const { service_id, user_id, doctor_id, payment, comment } = req.body;
-
         const newAppointment = {
             service_id: service_id,
             user_id: user_id,
@@ -21,13 +15,38 @@ appointmentController.newAppointment = async (req, res) => {
             payment: payment,
             comment: comment
         }
-
-        // Guardar la informacion
         const appointments = await Appointment.create(newAppointment)
-
         return res.json(appointments)
     } catch (error) {
         return res.status(500).send(error.message)
     }
 }
+
+appointmentController.updateAppointment = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const userId = req.params.userId
+        const passwordcompare = bcrypt.compareSync(password, User.password);
+        const appointment = await Appointment.update(
+            {
+                email: email,
+                password: encryptedPassword
+            },
+            {
+                where: {
+                    id: userId
+                }
+            }
+        );
+        if (!password) {
+            return res.send('User not updated')
+        }
+        return res.send('Appointment updated!')
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
+
+
 module.exports = appointmentController;
