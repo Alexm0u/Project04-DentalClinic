@@ -19,11 +19,11 @@ authController.login = async (req, res) => {
         return res.send('Wrong User')
     }
 
-    const isMatch = bcrypt.compareSync(password, user.password);
+//     const isMatch = bcrypt.compareSync(password, user.password);
 
-    if (!isMatch) {
-        return res.send('Wrong credentials')
-    }
+//     if (!isMatch) {
+//         return res.send('Wrong credentials')
+//     }
 
 //     const token = jwt.sign(
 //         {
