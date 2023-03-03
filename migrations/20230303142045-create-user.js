@@ -32,10 +32,10 @@ module.exports = {
       },
       role_id: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Roles",
-          key: "id"
-        }
+        // references: {
+        //   model: "Roles",
+        //   key: "id"
+        // }
       },
       createdAt: {
         allowNull: false,
