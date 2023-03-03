@@ -167,10 +167,11 @@ Used tech:
         ```
 </details>
 
-## Licencia
-Este proyecto se encuentra bajo licencia de Álvaro Bernabé Alonso & Álex Moya Camps.
+## Licence
 
-## Desarrollo:
+This project it's under licence of Álvaro Bernabé Alonso & Àlex Moya Camps.
+
+## Development
 
 ``` js
  thisApp.belongsTo.Alvaro&Alex
@@ -178,7 +179,7 @@ Este proyecto se encuentra bajo licencia de Álvaro Bernabé Alonso & Álex Moya
  Desarrollado por: alvarito101093 & Alexm0u
 ```  
 
-## Contacto
+## Contactgit stat
 
 <a href = "mailto:micorreoelectronico@gmail.com">Álvaro<img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
 <a href="https://www.linkedin.com/in/linkedinUser/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
