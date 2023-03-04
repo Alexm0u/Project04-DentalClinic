@@ -24,62 +24,30 @@ appointmentController.newAppointment = async (req, res) => {
 
 appointmentController.updateAppointment = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const userId = req.params.id;
-        const passwordcompare = bcrypt.compareSync(password, User.password);
-        const appointment = await Appointment.update(
-            {
-                email: email,
-                password: passwordcompare
+        const actualizar = req.body;
+        await Appointment.update(
+          {
+            service_id: actualizar.service_id,
+            user_id: actualizar.user_id,
+            doctor_id: actualizar.doctor_id,
+            payment: actualizar.payment,
+            comment: actualizar.comment,
+          },
+          {
+            where: {
+                user_id: req.userId 
             },
-            {
-                where: {
-                    id: userId
-                }
-            }
+          }
         );
-        if (!password) {
-            return res.send('Appointment not updated')
-        }
-        
-        return res.send('Appointment updated!')
-
-
-    } catch (error) {
-        return res.status(500).send(error.message)
-    }
-}
-
-appointmentController.showappointmentByLogin = async (req, res) => {
-    process.env.JWT_KEY
-    try {
-        // const { email, password, } = req.body;
-        const appointment = await Appointment.findAll(
-            // {
-            //     where: {
-            //         user_id: req.jwt.user_id
-            //     }
-            // }
-        )
-        // const user = await User.findOne(
-        //     {
-        //   where: {
-        //     email: email,
-        //   },
-        // }
-        // );
-        // if (!user) {
-        //   return res.send("Wrong User");
-        // }
-        // const isMatch = bcrypt.compareSync(password, user.password);
-        // if (!isMatch) {
-        //   return res.send("Wrong credentials");
-        // };
-        return res.json(appointment);
-    } catch (error) {
-        
-    }
-
+        res.json({
+          message: "Actualizada cita correctamente",
+        });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({
+          error: error.message,
+        });
+      }
 }
 
 appointmentController.showappointmentasDoctorByUserid = async (req, res) => {
@@ -143,6 +111,36 @@ appointmentController.showAppointmeasUser = async (req, res) => {
     } catch (error) {
         return res.status(500).send(error.message)
     }
+}
+
+appointmentController.deleteAllAppointment = async (req, res) => {
+    try {
+        const userCitas = await Appointment.destroy(
+            {
+                where: { 
+                    user_id: req.userId 
+                },
+            }
+        )
+        return res.json(userCitas)
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
+appointmentController.deleteAppointment = async (req, res) => {
+    // try {
+    //     const userCitas = await Appointment.destroy(
+    //         {
+    //             where: { 
+    //                 user_id: req.userId 
+    //             },
+    //         }
+    //     )
+    //     return res.json(userCitas)
+    // } catch (error) {
+    //     return res.status(500).send(error.message)
+    // }
 }
 
 
