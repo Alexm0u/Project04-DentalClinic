@@ -25,12 +25,12 @@ appointmentController.newAppointment = async (req, res) => {
 appointmentController.updateAppointment = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const userId = req.params.userId
+        const userId = req.params.id;
         const passwordcompare = bcrypt.compareSync(password, User.password);
         const appointment = await Appointment.update(
             {
                 email: email,
-                password: encryptedPassword
+                password: passwordcompare
             },
             {
                 where: {
@@ -39,14 +39,35 @@ appointmentController.updateAppointment = async (req, res) => {
             }
         );
         if (!password) {
-            return res.send('User not updated')
+            return res.send('Appointment not updated')
         }
+        
         return res.send('Appointment updated!')
+
+
     } catch (error) {
         return res.status(500).send(error.message)
     }
 }
 
+appointmentController.showappointment = async (req, res) => {
+        req.params.id;
+        process.env.JWT_KEY
+    let citasActivas = await Appointment.findAll({
+        where: {
+          user_id: req.params.id,
+        },
+        include: {
+        model: User,
+        attributes: ['fullName','role_id','phone'],
+        },
+        attributes: ['service_id', 'user_id', "doctor_id", "payment", "comment"]
+      });
+      res.status(200).json({
+        message: `Estas son las citas que tienes activas:`,
+        citasActivas,
+      });
+}
 
-
+    
 module.exports = appointmentController;
