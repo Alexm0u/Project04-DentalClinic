@@ -74,9 +74,14 @@ Used tech:
         body:
         ``` js
             {
-                "fullName": "Alvaro",
-                "email": "Alvaro@alvaro.com",
-                "password": "thekingonthesouth"
+                "dni_nif": "1245978QR",
+                "fullName": "Alvaro Titán",
+                "phone": 654789632,
+                "email": "kingofsouth@gmail.com",
+                "password": "thekingonthesouth",
+                "payment": "Efectivo",
+                "comments": "un tipo blando",
+                "role_id": 1
             }
         ```
 
@@ -86,7 +91,7 @@ Used tech:
         body:
         ``` js
             {
-                "email": "Alvaro@alvaro.com",
+                "email": "kingofsouth@gmail.com",
                 "password": "thekingonthesouth"
             }
         ```
