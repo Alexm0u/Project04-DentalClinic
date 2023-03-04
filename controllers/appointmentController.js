@@ -82,7 +82,7 @@ appointmentController.showappointmentByLogin = async (req, res) => {
 
 }
 
-appointmentController.showappointmentByUserid = async (req, res) => {
+appointmentController.showappointmentasDoctorByUserid = async (req, res) => {
         req.params.id;
         process.env.JWT_KEY
     let citasActivas = await Appointment.findAll({
@@ -102,7 +102,7 @@ appointmentController.showappointmentByUserid = async (req, res) => {
 }
 
 
-appointmentController.showAllappointment = async (req, res) => {
+appointmentController.showAllappointmentasDoctor = async (req, res) => {
     process.env.JWT_KEY
 let citasActivas = await Appointment.findAll({
     include: {
@@ -115,6 +115,34 @@ let citasActivas = await Appointment.findAll({
     message: `These are all the appointment in the calendar`,
     citasActivas,
   });
+}
+
+
+appointmentController.showAppointmeasUser = async (req, res) => {
+    try {
+        const userCitas = await Appointment.findAll(
+            {
+                where: { 
+                    user_id: req.userId 
+                },
+                include: [
+                    Service,
+                    {
+                        model: User,
+                        attributes: {
+                            exclude: ["password", "role_id", "createdAt", "updatedAt"]
+                        },
+                    },
+                ],
+                attributes: {
+                    exclude: ["user_id", "doctor_id", "service_id"]
+                }
+            }
+        )
+        return res.json(userCitas)
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
 }
 
 
