@@ -1,13 +1,13 @@
 # Welcome to my Dental Clinic Backend
 
-<details>
+<!-- <details>
   <summary>Content 📝</summary>
   <ol>
     <li><a href="#objective">Objective</a></li>
     <li><a href="#About-the-proyect">About the project</a></li>
     <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#diagrama-bd">Diagrama</a></li>
+    <li><a href="#diagram Db">Diagrama</a></li>
     <li><a href="#instalación-en-local">Instalación</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
     <li><a href="#futuras-funcionalidades">Futuras funcionalidades</a></li>
@@ -18,7 +18,7 @@
     <li><a href="#agradecimientos">Agradecimientos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ol>
-</details>
+</details> -->
 
 ## Objective
 The project requires an API connected to a database with at least one relation "One to Many" and "Many to Many". The API should be functional.
