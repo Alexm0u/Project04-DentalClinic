@@ -54,8 +54,16 @@ userController.updateUser = async (req, res) => {
   }
 }
 userController.getUserAsDoctor = async (req, res) => {
-  const users = await User.findAll();
-  return res.json(users);
+  const userId = req.params.id
+  
+  const allUsers = await User.findByPk(role_id,{
+    include: {all: true}
+  })
+  return res.json(allUsers)
 }
+
+// userController.getUser = async (req, res) => {
+//   const users = await User.findAll();
+//   return res.json(users);
 
 module.exports = userController

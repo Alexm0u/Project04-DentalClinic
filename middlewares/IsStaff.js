@@ -12,14 +12,10 @@ const isStaff = (req, res, next) => {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-
-        req.userId = decoded.userId;
-        req.roleId = decoded.roleId;
-        req.email = decoded.email
-        if (req.roleId === 2){
+        if (req.roleId === 2)
+        { next()
             return res.send('Ok, you can pass, darling')
         }
-        next();
     } catch (error) {
         return res.status(500).send(error.message)
     }
