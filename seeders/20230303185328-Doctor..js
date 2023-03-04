@@ -18,13 +18,7 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     });
-    doctors.push({
-      id: 2,
-      user_id: 3,
-      specialty: "Just taking money",
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    });
+
     return queryInterface.bulkInsert("Doctors", doctors);
   },
 

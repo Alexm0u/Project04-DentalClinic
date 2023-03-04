@@ -62,10 +62,10 @@ module.exports = {
       fullName: 'Adam de Eternia',
       phone: 658746125,
       email: 'adameternia@gmail.com',
-      password: password7,
+      password: password6,
       payment: 'Alfajores',
       comments: 'Nadie sabe que en realidad es HeMan',
-      role_id: 1,
+      role_id: 2,
       createdAt: new Date(),
       updatedAt: new Date()
     })
@@ -75,7 +75,7 @@ module.exports = {
       fullName: 'Optimus Prime',
       phone: 654894120,
       email: 'imarobot@gmail.com',
-      password: password8,
+      password: password6,
       payment: 'Paypal',
       comments: 'Se pone como una moto',
       role_id: 1,
