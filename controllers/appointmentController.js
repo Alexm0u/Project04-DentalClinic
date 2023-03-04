@@ -50,7 +50,39 @@ appointmentController.updateAppointment = async (req, res) => {
     }
 }
 
-appointmentController.showappointment = async (req, res) => {
+appointmentController.showappointmentByLogin = async (req, res) => {
+    process.env.JWT_KEY
+    try {
+        // const { email, password, } = req.body;
+        const appointment = await Appointment.findAll(
+            // {
+            //     where: {
+            //         user_id: req.jwt.user_id
+            //     }
+            // }
+        )
+        // const user = await User.findOne(
+        //     {
+        //   where: {
+        //     email: email,
+        //   },
+        // }
+        // );
+        // if (!user) {
+        //   return res.send("Wrong User");
+        // }
+        // const isMatch = bcrypt.compareSync(password, user.password);
+        // if (!isMatch) {
+        //   return res.send("Wrong credentials");
+        // };
+        return res.json(appointment);
+    } catch (error) {
+        
+    }
+
+}
+
+appointmentController.showappointmentByUserid = async (req, res) => {
         req.params.id;
         process.env.JWT_KEY
     let citasActivas = await Appointment.findAll({
@@ -64,10 +96,26 @@ appointmentController.showappointment = async (req, res) => {
         attributes: ['service_id', 'user_id', "doctor_id", "payment", "comment"]
       });
       res.status(200).json({
-        message: `Estas son las citas que tienes activas:`,
+        message: `These are all the appointment of the userId: ${req.params.id}`,
         citasActivas,
       });
 }
 
-    
+
+appointmentController.showAllappointment = async (req, res) => {
+    process.env.JWT_KEY
+let citasActivas = await Appointment.findAll({
+    include: {
+    model: User,
+    attributes: ['fullName','role_id','phone'],
+    },
+    attributes: ['service_id', 'user_id', "doctor_id", "payment", "comment"]
+  });
+  res.status(200).json({
+    message: `These are all the appointment in the calendar`,
+    citasActivas,
+  });
+}
+
+
 module.exports = appointmentController;
