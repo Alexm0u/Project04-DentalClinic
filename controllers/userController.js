@@ -11,6 +11,7 @@ userController.newUser = async (req, res) => {
       email: email,
       password: encryptedPassword,
     };
+
     const users = await User.create(user);
     return res.json(users);
   } catch (error) {
@@ -49,7 +50,6 @@ userController.updateUser = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
-
 
 userController.getUserAll = async(req, res)=> {
   const userId = req.params.id;

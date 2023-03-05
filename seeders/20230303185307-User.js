@@ -56,6 +56,32 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     })
+    usuarios.push({
+      id: 4,
+      dni_nif: '56887416Q',
+      fullName: 'Adam de Eternia',
+      phone: 658746125,
+      email: 'adameternia@gmail.com',
+      password: password6,
+      payment: 'Alfajores',
+      comments: 'Nadie sabe que en realidad es HeMan',
+      role_id: 2,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    })
+    usuarios.push({
+      id: 5,
+      dni_nif: '84569741T',
+      fullName: 'Optimus Prime',
+      phone: 654894120,
+      email: 'imarobot@gmail.com',
+      password: password6,
+      payment: 'Paypal',
+      comments: 'Se pone como una moto',
+      role_id: 1,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    })
     return queryInterface.bulkInsert('Users', usuarios)
   },
 

@@ -1,3 +1,4 @@
+
 'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
@@ -11,28 +12,31 @@ module.exports = {
       doctor_id: 2,
       payment: true,
       comment: "Dark teeth",
-        createdAt: new Date(),
-        updatedAt: new Date()
-      })
-      appointment.push({
-        id: 2,
-        service_id: 2,
-        user_id: 1,
-        doctor_id: 1,
-        payment: false,
-        comment: "allergic to aptx4869",
-        createdAt: new Date(),
-        updatedAt: new Date()
-      })
-      return queryInterface.bulkInsert('Appointments', appointment)
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    appointment.push({
+      id: 2,
+      service_id: 2,
+      user_id: 1,
+      doctor_id: 1,
+      payment: false,
+      comment: "allergic to aptx4869",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    appointment.push({
+      id: 3,
+      service_id: 2,
+      user_id: 3,
+      doctor_id: 1,
+      payment: false,
+      comment: "Halo singing so hard",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+
+    return queryInterface.bulkInsert("Appointments", appointment);
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
-};
+  async down(queryInterface, Sequelize) {
