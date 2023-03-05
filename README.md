@@ -50,7 +50,7 @@ Used tech:
 ## Diagram
 !['imagen-db'](./images/sampleDb.png)
 
-## Instalación en local
+## Installation
 1. Clone repository.
 2. Install dependencies.
 3. Connect repo with database.
@@ -162,16 +162,46 @@ Used tech:
         ```
     - SEE OWN APPOINTMENTS AS CLIENT
 
-            POST  http://localhost:3000/users/appointment/delete/1
+            GET  http://localhost:3000/appointmentuser
         body:
-        ``` js
+         ``` js
             {
                 "email": "Adan@adam.com",
                 "password": "princeofeternia",
-                "service_id": 1,
+                "service_id": 2,
                 "user_id": 4,
                 "doctor_id": 1,
-                "updatedAt": "2023-03-03T15:51:57.538Z",
+                "updatedAt": "2023-04-03T15:51:57.538Z",
+                "createdAt": "2023-03-03T15:51:57.538Z"
+            }
+        ```
+    - SEE ALL APPOINTMENTS AS DOCTOR ****
+
+            GET  http://localhost:3000/appointments/
+        body:
+         ``` js
+            {
+                "email": "Adan@adam.com",
+                "password": "princeofeternia",
+                "service_id": 2,
+                "user_id": 4,
+                "doctor_id": 1,
+                "updatedAt": "2023-04-03T15:51:57.538Z",
+                "createdAt": "2023-03-03T15:51:57.538Z"
+            }
+        ```
+    - SEE ALL USERS AS DOCTOR ****
+
+            GET  http://localhost:3000/appointments/
+        body:
+         ``` js
+            {
+                "email": "Adan@adam.com",
+                "password": "princeofeternia",
+                "service_id": 2,
+                "user_id": 4,
+                "doctor_id": 1,
+                "updatedAt": "2023-04-03T15:51:57.538Z",
                 "createdAt": "2023-03-03T15:51:57.538Z"
             }
         ```
