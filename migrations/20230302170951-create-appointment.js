@@ -11,17 +11,24 @@ module.exports = {
       },
       service_id: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Services",
-          key:"id"
-        }
+        // references: {
+        //   model: "Services",
+        //   key:"id"
+        // }
       },
       user_id: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Users",
-          key:"id"
-        }
+        // references: {
+        //   model: "Users",
+        //   key:"id"
+        // }
+      },
+      doctor_id: {
+        type: Sequelize.INTEGER,
+        // references: {
+        //   model: "Doctors",
+        //   key:"id"
+        // }
       },
       doctor_id: {
         type: Sequelize.INTEGER,

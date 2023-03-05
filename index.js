@@ -7,7 +7,6 @@ const authRoutes = require("./views/authRoutes");
 const appointmentRoutes = require("./views/appointmentRoutes");
 
 const app = express();
-
 app.use(express.json());
 
 app.use(userRoutes);

@@ -13,10 +13,8 @@ const password6 = bcrypt.hashSync(password3, 10);
 /** @type {import('sequelize-cbcrypt.hashSync(password, 10);li').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    // const encryptedPassword = bcrypt.hashSync(password, 10);
     const usuarios = [];
-    // const password = bcrypt.hashSync(password, 10);
-
+    
   usuarios.push({
       id: 1,
       dni_nif: '76548962R',

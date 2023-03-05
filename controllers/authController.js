@@ -1,7 +1,6 @@
 const { User } = require("../models/index");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
 const authController = {};
 
 authController.login = async (req, res) => {
