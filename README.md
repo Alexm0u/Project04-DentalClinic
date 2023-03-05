@@ -4,11 +4,11 @@
   <summary>Content 📝</summary>
   <ol>
     <li><a href="#objective">Objective</a></li>
-    <li><a href="#About-the-proyect">About the project</a></li>
+    <li><a href="#about-the-proyect">About the project</a></li>
     <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#diagram DB">Diagram DB</a></li>
-    <li><a href="#Dependencies-required">Dependencies required</a></li>
+    <li><a href="#dependencies-required">Dependencies required</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
     <li><a href="#licence">Licence</a></li>
     <li><a href="#development">Development</a></li>
@@ -180,10 +180,11 @@ This project it's under licence of Álvaro Bernabé Alonso & Àlex Moya Camps.
  Developed by: alvarito101093 & Alexm0u
 ```  
 
-## Contact us
+## Contact
 Álvaro links:
 <a href = "mailto:alvaro101093@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-<a href="https://www.linkedin.com/in/álvaro-bernabé-alonso-6514a999/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+<a href="https://www.linkedin.com/in/álvaro-bernabé-alonso-6514a999/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+
 Àlex links:
 <a href = "mailto:alex.moyacamps@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
 <a href="https://www.linkedin.com/in/alejandro-moya-camps-5448a477/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
