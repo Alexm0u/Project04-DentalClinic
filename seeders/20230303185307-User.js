@@ -1,6 +1,5 @@
 'use strict';
 const bcrypt = require("bcrypt");
-// var password = bcrypt.hashSync(password, 10);
 
 const password1 = "123";
 const password2 = "321";
@@ -13,10 +12,8 @@ const password6 = bcrypt.hashSync(password3, 10);
 /** @type {import('sequelize-cbcrypt.hashSync(password, 10);li').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    // const encryptedPassword = bcrypt.hashSync(password, 10);
     const usuarios = [];
-    // const password = bcrypt.hashSync(password, 10);
-
+    
   usuarios.push({
       id: 1,
       dni_nif: '76548962R',
@@ -82,8 +79,22 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     })
+    usuarios.push({
+      id: 6,
+      dni_nif: '345435534f',
+      fullName: 'Optimus no Prime',
+      phone: 4234,
+      email: 'test@gmail.com',
+      password: password1,
+      payment: 'Paypal',
+      comments: 'Se pone como un coche',
+      role_id: 3,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    })
     return queryInterface.bulkInsert('Users', usuarios)
   },
+  
 
   async down (queryInterface, Sequelize) {
     /**
