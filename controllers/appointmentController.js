@@ -147,7 +147,6 @@ appointmentController.deleteAppointment = async (req, res) => {
 
 
 module.exports = appointmentController;
-=======
 const { Appointment, Doctor, Role, Service, User } = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");

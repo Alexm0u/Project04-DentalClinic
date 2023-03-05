@@ -4,11 +4,12 @@
   <summary>Content 📝</summary>
   <ol>
     <li><a href="#objective">Objective</a></li>
-    <li><a href="#about-the-proyect">About the project</a></li>
+    <li><a href="#about-the-project">About the project</a></li>
     <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#diagram DB">Diagram DB</a></li>
-    <li><a href="#dependencies-required">Dependencies required</a></li>
+    <li><a href="#diagram">Diagram</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#dependencies">Dependencies</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
     <li><a href="#licence">Licence</a></li>
     <li><a href="#development">Development</a></li>
@@ -19,7 +20,7 @@
 ## Objective
 The project requires an API connected to a database with at least one relation "One to Many" and "Many to Many". The API should be functional.
 
-## About the project
+## About
 The project goal is to help with the organization on a Dental Clinic. Trough this API you can manage basics functions: 
 
 - Create, update and delete users.
@@ -46,10 +47,18 @@ Used tech:
  </div>
 
 
-## Diagram DB
+## Diagram
 !['imagen-db'](./images/sampleDb.png)
 
-## Dependencies required:
+## Instalación en local
+1. Clone repository.
+2. Install dependencies.
+3. Connect repo with database.
+4. ``` $ Execute migrations ``` 
+5. ``` $ Execute seeders ``` 
+6. ``` $ npm run dev ``` 
+
+## Dependencies
 1. Bcrypt 5.1.0
 2. Dotenv 16.0.3
 3. Express 4.18.2 
@@ -151,7 +160,7 @@ Used tech:
                 "createdAt": "2023-03-03T15:51:57.538Z"
             }
         ```
-    - ENDPOINTS RESTANTES
+    - SEE OWN APPOINTMENTS AS CLIENT
 
             POST  http://localhost:3000/users/appointment/delete/1
         body:
