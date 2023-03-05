@@ -1,7 +1,7 @@
 {
   "name": "project04-dentalclinic",
   "version": "1.0.0",
-  "description": "",
+  "description": "DB and API for a Dental Clinic",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
@@ -19,5 +19,13 @@
     "nodemon": "^2.0.20",
     "sequelize": "^6.29.0",
     "sequelize-cli": "^6.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexm0u/Project04-DentalClinic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alexm0u/Project04-DentalClinic/issues"
+  },
+  "homepage": "https://github.com/Alexm0u/Project04-DentalClinic#readme"
 }

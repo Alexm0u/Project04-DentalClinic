@@ -11,7 +11,7 @@ const isAdmin = (req, res, next) => {
         req.userId = decoded.userId;
         req.roleId = decoded.roleId;
         req.email = decoded.email
-        if (req.roleId !== 3){
+        if (req.roleId !== 2){
             return res.send('You dont have enough power')
         }
         next();

@@ -6,12 +6,14 @@ const authController = {};
 
 authController.login = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({
+    const { email, password, } = req.body;
+    const user = await User.findOne(
+        {
       where: {
         email: email,
       },
-    });
+    }
+    );
     if (!user) {
       return res.send("Wrong User");
     }

@@ -1,9 +1,10 @@
-"use strict";
+
+'use strict';
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    const appointment = [];
+  async up (queryInterface, Sequelize) {
+    const appointment = []
     appointment.push({
       id: 1,
       service_id: 1,
@@ -39,11 +40,3 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  },
-};
