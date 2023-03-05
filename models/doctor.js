@@ -11,21 +11,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Doctor.belongsTo(models.User, {
-        foreignKey: 'user_id'
-      });
+      Doctor.belongsTo(models.User);
 
       Doctor.hasMany(models.Appointment, {
-        foreignKey: 'doctor_id'
+        foreignKey: 'doctor_id',
+        constraints: false,
       });
 
-      Doctor.belongsToMany(models.Service, {
+      Doctor.belongsTo(models.Service, {
         through: "Appointment",
-        foreignKey: "doctor_id"
+        foreignKey: "doctor_id",
+        constraints: false,
       })
     }
   }
   Doctor.init({
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
     user_id: DataTypes.INTEGER,
     specialty: DataTypes.STRING
   }, {

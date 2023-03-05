@@ -16,11 +16,18 @@ module.exports = (sequelize, DataTypes) => {
         {
           through: 'Appointment',
           foreignKey: 'service_id',
+          constraints: false,
           // as: "citas"
         })
     }
   }
   Service.init({
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
     servicename: DataTypes.STRING,
     description: DataTypes.STRING,
     price: DataTypes.FLOAT,

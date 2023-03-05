@@ -6,11 +6,13 @@ const jwt = require("jsonwebtoken");
 const appointmentController = {};
 
 appointmentController.newAppointment = async (req, res) => {
+    process.env.JWT_KEY
+    req.params.id;
     try {
         const { service_id, user_id, doctor_id, payment, comment } = req.body;
         const newAppointment = {
             service_id: service_id,
-            user_id: user_id,
+            userId: user_id,
             doctor_id: doctor_id,
             payment: payment,
             comment: comment
@@ -70,14 +72,14 @@ appointmentController.showappointmentasDoctorByUserid = async (req, res) => {
 }
 
 
-appointmentController.showAllappointmentasDoctor = async (req, res) => {
+appointmentController.getAppointment = async (req, res) => {
     process.env.JWT_KEY
 let citasActivas = await Appointment.findAll({
-    include: {
-    model: User,
-    attributes: ['fullName','role_id','phone'],
-    },
-    attributes: ['service_id', 'user_id', "doctor_id", "payment", "comment"]
+    // include: {
+    // model: User,
+    // attributes: ['fullName','role_id','phone'],
+    // },
+    attributes: ['pacient_id', 'dentist_id', "treatment_id", "hour", "status"]
   });
   res.status(200).json({
     message: `These are all the appointment in the calendar`,
@@ -129,18 +131,18 @@ appointmentController.deleteAllAppointment = async (req, res) => {
 }
 
 appointmentController.deleteAppointment = async (req, res) => {
-    // try {
-    //     const userCitas = await Appointment.destroy(
-    //         {
-    //             where: { 
-    //                 user_id: req.userId 
-    //             },
-    //         }
-    //     )
-    //     return res.json(userCitas)
-    // } catch (error) {
-    //     return res.status(500).send(error.message)
-    // }
+    try {
+        const userCitas = await Appointment.destroy(
+            {
+                where: { 
+                    user_id: req.userId 
+                },
+            }
+        )
+        return res.json(userCitas)
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
 }
 
 

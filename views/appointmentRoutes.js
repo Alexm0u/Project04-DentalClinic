@@ -4,11 +4,12 @@ const isAdmin = require('../middlewares/isAdmin');
 const router = require('express').Router();
 
 
-router.post('/users/appointment', appointmentController.newAppointment);
-router.post('/users/appointmentmodify/:id',verifyToken, appointmentController.updateAppointment);
-router.get('/users/appointment/:id',verifyToken,isAdmin, appointmentController.showappointmentasDoctorByUserid);
-router.get('/users/appointments/',verifyToken,isAdmin, appointmentController.showAllappointmentasDoctor);
-router.get('/users/appointmentuser/:id',verifyToken, appointmentController.showAppointmeasUser); //User Token required
-router.get('/users/appointment/user/', appointmentController.showappointmentByLogin);
+router.post('/appointment',verifyToken, appointmentController.newAppointment);
+router.put('/appointmentmodify/',verifyToken, appointmentController.updateAppointment);
+router.get('/appointment/:id',verifyToken,isAdmin, appointmentController.showappointmentasDoctorByUserid);
+router.get('/appointments/',verifyToken,isAdmin, appointmentController.showAllappointmentasDoctor);
+router.get('/appointmentuser/',verifyToken, appointmentController.showAppointmeasUser); //User Token required
+router.delete('/appointment/deleteall',verifyToken,appointmentController.deleteAllAppointment); //Delete all Appointment with Token
+router.delete('/appointment/delete',verifyToken,appointmentController.deleteAppointment); //Delete all Appointment with Token
 
 module.exports = router;
