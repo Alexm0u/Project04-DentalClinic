@@ -53,5 +53,30 @@ userController.updateUser = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
-
+userController.findAllUsersDoctor = async (req, res) => {
+  try {
+      const user = await User.findAll(
+          {
+              attributes: {
+                  exclude: ["password"]
+              }
+          }
+      )
+      return res.json(
+          {
+              success: true,
+              message: "access profiles successfully",
+              user: user
+          }
+      );
+  } catch (error) {
+      return res.status(500).json(
+          {
+              success: false,
+              message: "Somenthing went wrong",
+              error_message: error.message
+          }
+      )
+  }
+}
 module.exports = userController

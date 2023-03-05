@@ -12,10 +12,10 @@ const isStaff = (req, res, next) => {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        if (req.roleId === 2)
-        { next()
-            return res.send('Ok, you can pass, darling')
+        if (req.roleId !== 2){
+            return res.send('You dont have enough power')
         }
+        next();
     } catch (error) {
         return res.status(500).send(error.message)
     }
