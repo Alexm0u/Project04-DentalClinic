@@ -42,7 +42,8 @@ Used tech:
 
 
 ## Diagram
-![image](https://user-images.githubusercontent.com/121814511/222975342-38d953c2-7d02-47ea-94cf-5f6e36b6d84c.png)
+![image](https://user-images.githubusercontent.com/121814511/222975446-4738fee4-9919-4e36-bd6d-5ef106c2a8cf.png)
+
 
 ## Installation
 1. Clone repository.
