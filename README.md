@@ -42,7 +42,7 @@ Used tech:
 
 
 ## Diagram
-!['imagen-db'](./images/sampleDb.png)
+![image](https://user-images.githubusercontent.com/121814511/222975342-38d953c2-7d02-47ea-94cf-5f6e36b6d84c.png)
 
 ## Installation
 1. Clone repository.
