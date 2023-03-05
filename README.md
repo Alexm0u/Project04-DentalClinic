@@ -5,7 +5,6 @@
   <ol>
     <li><a href="#objective">Objective</a></li>
     <li><a href="#about-the-project">About the project</a></li>
-    <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#diagram">Diagram</a></li>
     <li><a href="#installation">Installation</a></li>
@@ -26,11 +25,6 @@ The project goal is to help with the organization on a Dental Clinic. Trough thi
 - Create, update and delete users.
 - Admin services and appointments.
 - Manage user permission for staff and clients.
-
-## Deploy 🚀
-<div align="center">
-    <a href="https://www.google.com"><strong>Url a producción pdte </strong></a>🚀🚀🚀
-</div>
 
 ## Stack
 Used tech:
