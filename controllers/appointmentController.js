@@ -78,17 +78,23 @@ appointmentController.showAppointmentasDoctorByUserid = async (req, res) => {
 
 
 appointmentController.getAllAppointment = async (req, res) => {
-let citasActivas = await Appointment.findAll({
-    include: {
-    model: User,
-    attributes: ['fullName','role_id','phone'],
-    },
-    attributes: ['service_id', 'user_id', "doctor_id", "payment", "date"]
-  });
-  res.status(200).json({
-    message: `These are all the appointment in the calendar`,
-    citasActivas,
-  });
+    try {
+        let citasActivas = await Appointment.findAll({
+            include: {
+            model: User,
+            attributes: ['fullName','role_id','phone'],
+            },
+            attributes: ['service_id', 'user_id', "doctor_id", "payment", "date"]
+          });
+          res.status(200).json({
+            message: `These are all the appointment in the calendar`,
+            citasActivas,
+          });   
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+
+
 }
 
 

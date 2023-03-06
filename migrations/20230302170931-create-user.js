@@ -10,19 +10,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       dni_nif: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       fullName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
+        require: true
       },
       phone: {
         type: Sequelize.INTEGER
       },
       email: {
         type: Sequelize.STRING,
+              unique: true,
+              allowNull: false,
+              require: true
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       payment: {
         type: Sequelize.STRING

@@ -30,18 +30,13 @@ module.exports = {
           key:"id"
         }
       },
-      doctor_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Doctors",
-          key:"id"
-        }
-      },
       payment: {
         type: Sequelize.BOOLEAN
       },
       date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
+        require: true
       },
       createdAt: {
         allowNull: false,
