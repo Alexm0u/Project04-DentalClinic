@@ -223,4 +223,3 @@ This project it's under licence of Álvaro Bernabé Alonso & Àlex Moya Camps.
 <a href="https://www.linkedin.com/in/alejandro-moya-camps-5448a477/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 </p>
 
-<!-- AÑADIR INSTALACIÓN de la APP
