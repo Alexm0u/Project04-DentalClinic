@@ -4,10 +4,7 @@ const jwt = require("jsonwebtoken");
 const appointmentController = {};
 
 appointmentController.newAppointmentAdmin = async (req, res) => {
-    // process.env.JWT_KEY
-    // req.params.id;
     try {
-        console.log("---------------------------------------")
         const { service_id, user_id, doctor_id, payment, date } = req.body;
         const newAppointment = {
             service_id: service_id,
@@ -26,7 +23,6 @@ appointmentController.newAppointmentAdmin = async (req, res) => {
 appointmentController.updateAppointment = async (req, res) => {
     try {
         const actualizar = req.body;
-
         const appointmentupdated = await Appointment.update(
             {
             service_id: actualizar.service_id,
@@ -57,7 +53,6 @@ appointmentController.updateAppointment = async (req, res) => {
 appointmentController.showAppointmentasDoctorByUserid = async (req, res) => {
     try {
         req.params.id;
-        process.env.JWT_KEY
     let citasActivas = await Appointment.findAll({
         where: {
             user_id: req.params.id,
@@ -83,12 +78,11 @@ appointmentController.showAppointmentasDoctorByUserid = async (req, res) => {
 
 
 appointmentController.getAllAppointment = async (req, res) => {
-    process.env.JWT_KEY
 let citasActivas = await Appointment.findAll({
-    // include: {
-    // model: User,
-    // attributes: ['fullName','role_id','phone'],
-    // },
+    include: {
+    model: User,
+    attributes: ['fullName','role_id','phone'],
+    },
     attributes: ['service_id', 'user_id', "doctor_id", "payment", "date"]
   });
   res.status(200).json({
