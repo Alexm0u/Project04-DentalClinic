@@ -1,8 +1,8 @@
 const userController = require("../controllers/userController");
 const verifyToken = require('../middlewares/verifyToken');
 const isAdmin = require('../middlewares/isAdmin');
-const router = require("express").Router();
 const isStaff = require('../middlewares/IsStaff');
+const router = require("express").Router();
 
 router.post("/user", userController.newUser);
 router.get("/user", verifyToken, isAdmin, userController.getAllUser);

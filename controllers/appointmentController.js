@@ -1,9 +1,7 @@
-const { Appointment, Doctor, Role, Service, User } = require("../models")
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const { Appointment, Service, User } = require("../models")
 const appointmentController = {};
 
-appointmentController.newAppointmentAdmin = async (req, res) => {
+appointmentController.newAppointment = async (req, res) => {
     try {
         const { service_id, user_id, doctor_id, payment, date } = req.body;
         const newAppointment = {
@@ -85,11 +83,11 @@ appointmentController.getAllAppointment = async (req, res) => {
             attributes: ['fullName','role_id','phone'],
             },
             attributes: ['service_id', 'user_id', "doctor_id", "payment", "date"]
-          });
-          res.status(200).json({
+        });
+            res.status(200).json({
             message: `These are all the appointment in the calendar`,
             citasActivas,
-          });   
+        });   
     } catch (error) {
         return res.status(500).send(error.message)
     }

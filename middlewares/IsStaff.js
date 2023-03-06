@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const isStaff = (req, res, next) => {
     try {
         if (req.roleId !== 2){
-            return res.send('You dont have enough room for power')
+            return res.send('You are not a Doctor')
         }
         next();
     } catch (error) {
