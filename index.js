@@ -1,17 +1,11 @@
 const express = require("express");
 const db = require("./db/db");
 require("dotenv").config();
-
-const userRoutes = require("./views/userRoutes");
-const authRoutes = require("./views/authRoutes");
-const appointmentRoutes = require("./views/appointmentRoutes");
-
+const router = require('./router'); 
 const app = express();
-app.use(express.json());
 
-app.use(userRoutes);
-app.use(authRoutes);
-app.use(appointmentRoutes);
+app.use(express.json());
+app.use( router); 
 
 const PORT = process.env.PORT || 4000;
 
