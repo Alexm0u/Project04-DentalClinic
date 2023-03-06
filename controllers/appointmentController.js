@@ -4,16 +4,17 @@ const jwt = require("jsonwebtoken");
 const appointmentController = {};
 
 appointmentController.newAppointmentAdmin = async (req, res) => {
-    process.env.JWT_KEY
-    req.params.id;
+    // process.env.JWT_KEY
+    // req.params.id;
     try {
-        const { service_id, user_id, doctor_id, payment, comment } = req.body;
+        console.log("---------------------------------------")
+        const { service_id, user_id, doctor_id, payment, date } = req.body;
         const newAppointment = {
             service_id: service_id,
-            userId: user_id,
+            user_id: req.userId,
             doctor_id: doctor_id,
             payment: payment,
-            comment: comment
+            date: date
         }
         const appointments = await Appointment.create(newAppointment)
         return res.json(appointments)
@@ -25,20 +26,23 @@ appointmentController.newAppointmentAdmin = async (req, res) => {
 appointmentController.updateAppointment = async (req, res) => {
     try {
         const actualizar = req.body;
-        await Appointment.update(
+
+        const appointmentupdated = await Appointment.update(
             {
             service_id: actualizar.service_id,
             user_id: actualizar.user_id,
             doctor_id: actualizar.doctor_id, 
             payment: actualizar.payment,
-            comment: actualizar.comment,
+            date: actualizar.date,
             },
             {
             where: {
-                user_id: req.userId 
+                id: req.params.id, 
+                user_id: req.userId
             },
             }
         );
+        console.log(appointmentupdated) 
         res.json({
             message: "Actualizada cita correctamente",
         });
@@ -62,7 +66,7 @@ appointmentController.showAppointmentasDoctorByUserid = async (req, res) => {
         model: User,
         attributes: ['fullName','role_id','phone'],
         },
-        attributes: ['service_id', 'user_id', "doctor_id", "payment", "comment"]
+        attributes: ['service_id', 'user_id', "doctor_id", "payment", "date"]
         });
         res.json({
         message: `These are all the appointment of the userId: ${req.params.id}`,
@@ -85,7 +89,7 @@ let citasActivas = await Appointment.findAll({
     // model: User,
     // attributes: ['fullName','role_id','phone'],
     // },
-    attributes: ['service_id', 'user_id', "doctor_id", "payment", "comment"]
+    attributes: ['service_id', 'user_id', "doctor_id", "payment", "date"]
   });
   res.status(200).json({
     message: `These are all the appointment in the calendar`,

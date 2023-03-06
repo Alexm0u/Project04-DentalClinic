@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     doctor_id: DataTypes.INTEGER,
     payment: DataTypes.BOOLEAN,
-    comment: DataTypes.STRING
+    date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Appointment',

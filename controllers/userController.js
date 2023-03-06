@@ -4,12 +4,17 @@ const userController = {};
 
 userController.newUser = async (req, res) => {
   try {
-    const { fullName, email, password } = req.body;
+    const {dni_nif, fullName, phone, email, password, payment, comments} = req.body;
     const encryptedPassword = bcrypt.hashSync(password, 10);
     const user = {
+      dni_nif: dni_nif,
       fullName: fullName,
+      phone: phone,
       email: email,
       password: encryptedPassword,
+      payment: payment,
+      comments: comments,
+      role_id: 1
     };
     const users = await User.create(user);
     return res.json(users);
@@ -45,6 +50,33 @@ userController.updateUser = async (req, res) => {
       return res.send('User not updated')
     }
     return res.send('User updated')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+userController.updateRole = async (req, res) => {
+  try {
+    const { fullName, email, password, role_id } = req.body;
+    const userId = req.params.id
+    const encryptedPassword = bcrypt.hashSync(password, 10);
+    const updateUser = await User.update(
+      {
+        fullName: fullName,
+        email: email,
+        password: encryptedPassword,
+        role_id: role_id
+      },
+      {
+        where: {
+          id: userId
+        }
+      }
+    );
+    if (!updateUser) {
+      return res.send('Role not updated')
+    }
+    return res.send('Role updated')
   } catch (error) {
     return res.status(500).send(error.message)
   }

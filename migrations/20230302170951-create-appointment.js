@@ -40,8 +40,8 @@ module.exports = {
       payment: {
         type: Sequelize.BOOLEAN
       },
-      comment: {
-        type: Sequelize.STRING
+      date: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

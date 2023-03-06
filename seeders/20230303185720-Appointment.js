@@ -10,7 +10,7 @@ module.exports = {
       user_id: 2,
       doctor_id: 2,
       payment: true,
-      comment: "Dark teeth",
+      date: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -20,7 +20,7 @@ module.exports = {
       user_id: 1,
       doctor_id: 1,
       payment: false,
-      comment: "allergic to aptx4869",
+      date: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     });
@@ -30,7 +30,7 @@ module.exports = {
       user_id: 3,
       doctor_id: 1,
       payment: false,
-      comment: "Halo singing so hard",
+      date: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     });
