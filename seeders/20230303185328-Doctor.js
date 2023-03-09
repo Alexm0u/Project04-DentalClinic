@@ -13,7 +13,7 @@ module.exports = {
         });
         doctors.push({
         id: 2,
-        user_id: 3,
+        user_id: 4,
         specialty: "Oral Surgery",
         createdAt: new Date(),
         updatedAt: new Date(),

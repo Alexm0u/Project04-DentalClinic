@@ -1,4 +1,4 @@
-const { Appointment, Service, User } = require("../models")
+const { Appointment, Service, User, Doctor } = require("../models")
 const appointmentController = {};
 
 appointmentController.newAppointment = async (req, res) => {
@@ -137,5 +137,31 @@ appointmentController.deleteAllAppointment = async (req, res) => {
         return res.status(500).send(error.message)
     }
 }
+
+appointmentController.getMyAppointmentsAsDoctor = async (req, res) => {
+    try {
+        const doctorId= req.userId;
+        const appointments = await Appointment.findAll(
+            {
+                where: {
+                    id: doctorId
+                },
+            },
+        );
+        return res.json(
+            {
+            success: true,
+            message: "Succesfully recovered my appointment as a Doctor",
+            data: appointments
+            });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
+    }
+}
+    
 
 module.exports = appointmentController;

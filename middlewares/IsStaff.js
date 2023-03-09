@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const doctor = require('../models/doctor');
 
 const isStaff = (req, res, next) => {
     try {

@@ -5,19 +5,19 @@ const {
 module.exports = (sequelize, DataTypes) => {
     class Appointment extends Model {
         static associate(models) {
-        // define association here
-            Appointment.belongsTo(models.Service, {
-            foreignKey: 'service_id',
-            constraints: false,
-        });
-        Appointment.belongsTo(models.User, {
-            foreignKey: 'user_id',
-            constraints: false,
-        });
-        Appointment.belongsTo(models.Doctor, {
-            foreignKey: 'doctor_id',
-            constraints: false,
-        });
+            // define association here
+                Appointment.belongsTo(models.Service, {
+                foreignKey: 'service_id',
+                constraints: false,
+            });
+            Appointment.belongsTo(models.User, {
+                foreignKey: 'user_id',
+                constraints: false,
+            });
+            Appointment.belongsTo(models.Doctor, {
+                foreignKey: 'doctor_id',
+                constraints: false,
+            });
     }
 }
 

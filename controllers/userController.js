@@ -31,13 +31,10 @@ userController.getAllUser = async (req, res) => {
 
 userController.updateUser = async (req, res) => {
     try {
-        const { fullName, email, password } = req.body;
-        const encryptedPassword = bcrypt.hashSync(password, 10);
+        const { role_id } = req.body;
         const updateUser = await User.update(
         {
-            fullName: fullName,
-            email: email,
-            password: encryptedPassword
+            role_id: role_id,
         },
         {
             where: {

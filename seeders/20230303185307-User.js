@@ -12,19 +12,18 @@ const password6 = bcrypt.hashSync(password3, 10);
 module.exports = {
     async up (queryInterface, Sequelize) {
         const usuarios = [];
-        
-    usuarios.push({
+        usuarios.push({
         id: 1,
-        dni_nif: '76548962R',
-        fullName: 'Doe el grande',
-        phone: 666666661,
-        email: 'doegrande@gmail.com',
-        password: password4,
-        payment: 'Efectivo',
-        comments: 'Un grande el señor doe',
-        role_id: 1,
+        dni_nif: '56887416Q',
+        fullName: 'Adam de Eternia',
+        phone: 658746125,
+        email: 'adameternia@gmail.com',
+        password: password6,
+        payment: 'Alfajores',
+        comments: 'Nadie sabe que en realidad es HeMan',
+        role_id: 2,
         createdAt: new Date(),
-        updatedAt: new Date(),
+        updatedAt: new Date()
         })
         usuarios.push({
         id: 2,
@@ -54,16 +53,16 @@ module.exports = {
         })
         usuarios.push({
         id: 4,
-        dni_nif: '56887416Q',
-        fullName: 'Adam de Eternia',
-        phone: 658746125,
-        email: 'adameternia@gmail.com',
-        password: password6,
-        payment: 'Alfajores',
-        comments: 'Nadie sabe que en realidad es HeMan',
-        role_id: 2,
+        dni_nif: '76548962R',
+        fullName: 'Doe el grande',
+        phone: 666666661,
+        email: 'doegrande@gmail.com',
+        password: password4,
+        payment: 'Efectivo',
+        comments: 'Un grande el señor doe',
+        role_id: 1,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
         })
         usuarios.push({
         id: 5,

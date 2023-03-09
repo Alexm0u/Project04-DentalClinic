@@ -10,5 +10,6 @@ router.put('/appointmentmodify/',verifyToken,isAdmin, appointmentController.upda
 router.get('/appointment/:id',verifyToken,isStaff, appointmentController.showAppointmentasDoctorByUserid);
 router.get('/appointments/',verifyToken,isAdmin, appointmentController.getAllAppointment);
 router.delete('/appointment/deleteall',verifyToken,appointmentController.deleteAllAppointment);  
+router.get('/appointmentAsDoctor/', verifyToken, isStaff, appointmentController.getMyAppointmentsAsDoctor);
 
 module.exports = router;
