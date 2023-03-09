@@ -14,7 +14,11 @@ appointmentController.newAppointment = async (req, res) => {
         const appointments = await Appointment.create(newAppointment)
         return res.json(appointments)
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
 }
 
@@ -89,10 +93,12 @@ appointmentController.getAllAppointment = async (req, res) => {
             citasActivas,
         });   
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
-
-
 }
 
 
@@ -119,7 +125,11 @@ appointmentController.showAppointmeasUser = async (req, res) => {
         )
         return res.json(userCitas)
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
 }
 
@@ -134,7 +144,11 @@ appointmentController.deleteAllAppointment = async (req, res) => {
         )
         return res.json(userCitas)
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
 }
 
