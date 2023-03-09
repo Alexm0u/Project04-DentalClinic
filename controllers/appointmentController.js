@@ -44,11 +44,12 @@ appointmentController.updateAppointment = async (req, res) => {
         res.json({
             message: "Actualizada cita correctamente",
         });
-        } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            error: error.message,
-        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
 }
 

@@ -19,9 +19,13 @@ userController.newUser = async (req, res) => {
         const users = await User.create(user);
         return res.json(users);
     } catch (error) {
-        return res.status(500).send(error.message);
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
-};
+}
 
 
 userController.getAllUser = async (req, res) => {
@@ -47,7 +51,11 @@ userController.updateUser = async (req, res) => {
         }
         return res.send('User updated')
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
 }
 
@@ -74,7 +82,11 @@ userController.updateRole = async (req, res) => {
         }
         return res.send('Role updated')
     } catch (error) {
-        return res.status(500).send(error.message)
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
     }
 }
 
@@ -106,11 +118,19 @@ userController.findAllUsersDoctor = async (req, res) => {
 }
 
 userController.getUserbyId= async(req, res)=> {
-    const userId = req.params.id;
-    const roleuser = await User.findByPk(userId, {
-        include: {all: true}
-    }); 
-    return res.json(roleuser);
+    try {
+        const userId = req.params.id;
+        const roleuser = await User.findByPk(userId, {
+            include: {all: true}
+        }); 
+        return res.json(roleuser);
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Ups, something were wrong",
+            error: error.message
+        })
+    }
 }
 
 module.exports = userController;
