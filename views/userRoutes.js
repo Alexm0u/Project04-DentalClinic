@@ -10,5 +10,9 @@ router.put("/updateuser/:id",verifyToken, userController.updateUser,);
 router.put("/updateuser/role/:id",verifyToken, isAdmin, userController.updateRole,);
 router.get("/user/findAllUsersDoctor", verifyToken, isStaff, userController.findAllUsersDoctor);
 router.get("/user/profile", verifyToken, userController.getUserbyId);
+router.get("/user/myprofile", verifyToken, userController.getMyUser);
+
+
+
 
 module.exports = router;
