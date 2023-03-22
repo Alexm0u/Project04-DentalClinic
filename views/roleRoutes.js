@@ -3,6 +3,6 @@ const verifyToken = require('../middlewares/verifyToken');
 const isAdmin = require('../middlewares/isAdmin');
 const router = require("express").Router();
 
-router.put("/user/role", verifyToken, isAdmin, roleController.newRole);
+router.put("/user/update/role/:id", verifyToken, isAdmin, roleController.newRole);
 
 module.exports = router;

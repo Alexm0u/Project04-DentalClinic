@@ -25,6 +25,7 @@ authController.login = async (req, res) => {
             userId: user.id,
             email: user.email,
             roleId: user.role_id,
+            fullName: user.fullName,
         },
         "secreto",
         { expiresIn: "2h" }

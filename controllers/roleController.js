@@ -1,22 +1,25 @@
 const { User } = require("../models/index");
+const bcrypt = require('bcrypt');
 const roleController = {};
 
 roleController.newRole = async (req, res) => {
-    process.env.JWT_KEY
     try {
-        const { id, email, password, role_id } = req.body;
-        const newRole = {
-        userid: id,
-        email: email,
-        password: password,
-        role_id: role_id
-        };
-        const roleUpdate = await User.update({
-        where: {
-            id: User.id
+        const { role_id } = req.body;
+        const userId = req.params.id
+        const updateUser = await User.update(
+        {
+            role_id: role_id,
+        },
+        {
+            where: {
+            id: userId
+            }
         }
-        });newRole
-        return res.json(roleUpdate);
+        );
+        if (!updateUser) {
+        return res.send('User not updated')
+        }
+        return res.send('User updated')
     } catch (error) {
         return res.status(500).json({
             success: false,
