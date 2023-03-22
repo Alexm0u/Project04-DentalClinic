@@ -1,10 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "dentalclinic",
-    "host": "127.0.0.1",
-    "port" : 3306,
+    "password": "1YbdDG5AYO7Fm0GGMax6",
+    "database": "railway",
+    "host": "containers-us-west-34.railway.app",
+    "port" : 6487,
     "dialect": "mysql"
   },
   "test": {
@@ -16,9 +16,10 @@
   },
   "production": {
     "username": "root",
-    "password": "I48Hx0phOpYvcKYWSOEM",
-    "database": "database_production",
+    "password": "root",
+    "database": "dentalclinic",
     "host": "127.0.0.1",
+    "port" : 3306,
     "dialect": "mysql"
   }
 }
