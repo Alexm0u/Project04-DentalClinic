@@ -17,7 +17,7 @@
 </details>
 
 ## Objective
-The project requires an API connected to a database with at least one relation "One to Many" and "Many to Many". The API should be functional.
+This project requires an API connected to a database with at least one relation "One to Many" and "Many to Many". The API should be functional.
 
 ## About the project
 The project goal is to help with the organization on a Dental Clinic. Trough this API you can manage basics functions: 
