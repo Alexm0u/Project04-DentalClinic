@@ -10,7 +10,7 @@ module.exports = {
             type: Sequelize.INTEGER
         },
         service_id: {
-            type: Sequelize.TEXT,
+            type: Sequelize.INTEGER,
             references: {
             model: "Services",
             key:"id"
@@ -24,7 +24,7 @@ module.exports = {
             }
         },
         doctor_id: {
-            type: Sequelize.TEXT,
+            type: Sequelize.INTEGER,
             references: {
             model: "Doctors",
             key:"id"

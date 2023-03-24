@@ -28,9 +28,9 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true
         },
-        service_id: DataTypes.TEXT,
+        service_id: DataTypes.INTEGER,
         user_id: DataTypes.INTEGER,
-        doctor_id: DataTypes.TEXT,
+        doctor_id: DataTypes.INTEGER,
         payment: DataTypes.BOOLEAN,
         date: DataTypes.DATE
     }, {
