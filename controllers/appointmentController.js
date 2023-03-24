@@ -25,18 +25,14 @@ appointmentController.newAppointment = async (req, res) => {
 appointmentController.updateAppointment = async (req, res) => {
     try {
         const actualizar = req.body;
+        const userId = req.userId
+        const appointmentId = req.params.id;
         const appointmentupdated = await Appointment.update(
-            {
-            service_id: actualizar.service_id,
-            user_id: actualizar.user_id,
-            doctor_id: actualizar.doctor_id, 
-            payment: actualizar.payment,
-            date: actualizar.date,
-            },
+            { actualizar: actualizar},
             {
             where: {
-                id: req.params.id, 
-                user_id: req.userId
+                id: appointmentId, 
+                user_id: userId
             },
             }
         );
