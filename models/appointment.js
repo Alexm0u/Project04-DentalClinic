@@ -29,9 +29,9 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true
         },
         service_id: DataTypes.TEXT,
-        user_id: DataTypes.TEXT,
+        user_id: DataTypes.INTEGER,
         doctor_id: DataTypes.TEXT,
-        payment: DataTypes.TEXT,
+        payment: DataTypes.BOOLEAN,
         date: DataTypes.DATE
     }, {
         sequelize,
