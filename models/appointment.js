@@ -28,10 +28,10 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true
         },
-        service_id: DataTypes.INTEGER,
-        user_id: DataTypes.INTEGER,
-        doctor_id: DataTypes.INTEGER,
-        payment: DataTypes.BOOLEAN,
+        service_id: DataTypes.TEXT,
+        user_id: DataTypes.TEXT,
+        doctor_id: DataTypes.TEXT,
+        payment: DataTypes.TEXT,
         date: DataTypes.DATE
     }, {
         sequelize,
